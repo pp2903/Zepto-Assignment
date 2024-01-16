@@ -42,7 +42,7 @@ const Chip = ({id,name,email,profile_photo}) => {
 
     <img className="mx-1 w-4 h-4 rounded-full" src={profile_photo} alt={name}/>
     <p className="mx-1 text-xs">{name}</p>
-    <a className="mx-1 mr-1.5 text-xs" href="#!"><img className="w-[10px] pt-[0.20rem]" onClick={()=>handleClick(id)} src="./src/assets/cross.png" alt="cross icon" /></a>
+    <a className="mx-1 mr-1.5 text-xs" href="#!"><img className="w-[10px] pt-[0.20rem]" onClick={()=>handleClick(id)} src="/cross.png" alt="cross icon" /></a>
     
     </div>
     
