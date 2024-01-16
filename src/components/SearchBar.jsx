@@ -43,7 +43,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="search-bar-container bg-white rounded-full flex flex-wrap max-w-[250px] md:max-w-md  mb-0 pb-0">
+      <div className="search-bar-container bg-white rounded-md flex flex-wrap max-w-[250px] md:max-w-md  mb-1 pb-0">
         {chipList}
 
         <input
