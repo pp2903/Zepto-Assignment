@@ -8,4 +8,10 @@
   height: 100vw;
 }
 
+.dropdown-item.hover {
+  background-color: rgb(144, 144, 144);
+}
 
+.dropdown-container::-webkit-scrollbar {
+  display: none;
+}

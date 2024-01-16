@@ -6,7 +6,7 @@ function App() {
   
   
   return (
-    <div className='grid grid-cols-1 gap-4 place-content-center '>
+    <div className='grid grid-cols-1 gap-1 place-content-center '>
     <SearchBar></SearchBar>
     {/* <Chip></Chip> */}
     </div>

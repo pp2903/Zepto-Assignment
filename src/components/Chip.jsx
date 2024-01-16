@@ -1,7 +1,7 @@
 const Chip = () => {
   return (
     <>
-    <div className="flex place-content-center bg-slate-300 rounded-full py-1 min-w-max max-w-min items-center m-[3.5px]">
+    <div className="chip flex place-content-center bg-slate-300 rounded-full py-1 min-w-max max-w-min items-center m-[3.5px]">
 
     <img className="mx-1 w-4 h-4 rounded-full" src="./src/images/profilePhotos/p1.png"/>
     <p className="mx-1 text-xs">Name</p>
