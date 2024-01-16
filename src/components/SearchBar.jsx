@@ -8,17 +8,24 @@ const SearchBar = () => {
 
   const data = useContext(AppContext);
   const { inputActive, setInputActive, state, dispatch } = data;
+
   const handleInputSelect = (e) => {
-    // console.log(e)
     setInputActive(true);
   };
 
   const handleBlur = (e) => {
     if (e.relatedTarget.name !== "dropdown-item")
-      if (e.relatedTarget === null) setInputActive(false);
+      if (e.relatedTarget === null) {
+        console.log("Dropdown disappears");  
+        setInputActive(false);
+      }
+
+    console.log("From blur");
   };
 
   const handleInputChange = (e) => {
+    console.log("From input change");
+    
     setInput(e.target.value);
   };
 
@@ -46,10 +53,12 @@ const SearchBar = () => {
           value={input}
           onChange={handleInputChange}
           onFocus={handleInputSelect}
-          onBlur={handleBlur}
+          // onBlur={handleBlur}
         />
       </div>
-      {inputActive && data.state.dropdownItems.length > 0 && <Dropdown />}
+      {inputActive && data.state.dropdownItems.length > 0 && (
+        <Dropdown input={input} setInput={setInput}  />
+      )}
     </>
   );
 };

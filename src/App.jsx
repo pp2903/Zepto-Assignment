@@ -1,7 +1,6 @@
 
 import './App.css'
 import SearchBar from './components/SearchBar'
-import Chip from './components/Chip'
 import { user_data } from './data/userData'
 import { createContext, useEffect, useRef, useState } from 'react'
 export const AppContext = createContext({})
@@ -21,19 +20,14 @@ function App() {
   //handling all the changes in the reducer function
   const reducer = (state, action)=>{
     if(action.type==="SELECT"){
-      console.log("REDUCER RECEIVED THE PAYLOAD! ",action.payload)
       return {...state,dropdownItems:action.payload.newDropItems,chipItems:action.payload.newChipItems}
     }
 
     if(action.type==="REMOVE"){
-      
-      console.log("REDUCER RECEIVED THE PAYLOAD! ",action.payload)
       return {...state,dropdownItems:action.payload.newDropItems,chipItems:action.payload.newChipItems}
     }
   }
 
-
-  console.log("Default state",defaultState);
 
   const appRef = useRef(null);
   useEffect(()=>{

@@ -1,55 +1,57 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../App";
 
-const Dropdown = () => {
+const Dropdown = ({ input, setInput }) => {
   const data = useContext(AppContext);
-  const { state, dispatch } = data;
+  const { state } = data;
+  const dropdown_list = state.dropdownItems.filter((item) => {
+    if (item.name.toLowerCase().includes(input.toLowerCase())) return item;
+  });
 
-  const dropdown_list = state.dropdownItems.map((item) => {
+  const filtered_dropdown_list = dropdown_list.map((item) => {
     const { id, name, email, profile_photo } = item;
 
     return (
       <div key={id}>
-        <DropdownItem id={id} name={name} email={email} profile_photo={profile_photo} />
+        <DropdownItem
+          id={id}
+          name={name}
+          email={email}
+          profile_photo={profile_photo}
+        />
       </div>
     );
   });
 
   return (
     <div className="dropdown-container block min-w-max max-w-md flex-col bg-white rounded-lg  pt-0 mt-0 drop-shadow-2xl justify-evenly overflow-y-auto h-28">
-      {dropdown_list}
+      {filtered_dropdown_list}
     </div>
   );
 };
-
-
-
-
 
 const DropdownItem = ({ id, name, email, profile_photo }) => {
   const data = useContext(AppContext);
   const { state, dispatch } = data;
 
+  const handleClick = (id) => {
+    const newDropItems = state.dropdownItems.filter((item) => {
+      if (item.id !== id) return item;
+    });
 
+    const item = state.people.find((obj) => obj.id === id);
+    const newChipItems = [...state.chipItems, item];
 
-  const handleClick = (id)=>{
-    
-    
-    const newDropItems = state.dropdownItems.filter((item)=>{
-      if(item.id!==id) return item
-    })
-
-    const item = state.people.find(obj=>obj.id===id)
-    console.log("The item = ",item);
-    const newChipItems= [...state.chipItems, item]
-    console.log("New chip items",newChipItems)
-    
-    dispatch({type:'SELECT',payload:{newDropItems,newChipItems}})
-  }
-
+    dispatch({ type: "SELECT", payload: { newDropItems, newChipItems } });
+  };
 
   return (
-    <a id={`item-${id}`} href="#!" name="dropdown-item" onClick={()=>handleClick(id)}>
+    <a
+      id={`item-${id}`}
+      href="#!"
+      name="dropdown-item"
+      onClick={() => handleClick(id)}
+    >
       <div
         className={`dropdown-item p-2 flex justify-between min-w-min  hover:bg-slate-100 rounded-sm`}
       >
