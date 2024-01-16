@@ -1,12 +1,17 @@
-import { useRef,useState } from "react";
+// import { useRef,useState,useReducer } from "react";
 import Chip from "./Chip";
 const SearchBar = () => {
-
-
-
   return (
-    <div className="search-bar-container">
-      <input  className="rounded-lg m-2 p-2 h-10 w-64" type="text" value={<Chip/>}/>
+    <div className="search-bar-container bg-white rounded-full  min-w-max flex">
+      <Chip></Chip>
+      <input
+        className="rounded-lg m-2 ml-0 p-2 h-6 w-64  focus:outline-none"
+        type="text"
+        placeholder="Search..."
+        value=""
+      />
+
+      
     </div>
   );
 };
