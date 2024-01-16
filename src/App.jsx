@@ -24,6 +24,12 @@ function App() {
       console.log("REDUCER RECEIVED THE PAYLOAD! ",action.payload)
       return {...state,dropdownItems:action.payload.newDropItems,chipItems:action.payload.newChipItems}
     }
+
+    if(action.type==="REMOVE"){
+      
+      console.log("REDUCER RECEIVED THE PAYLOAD! ",action.payload)
+      return {...state,dropdownItems:action.payload.newDropItems,chipItems:action.payload.newChipItems}
+    }
   }
 
 

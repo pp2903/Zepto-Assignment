@@ -23,12 +23,15 @@ const SearchBar = () => {
   };
 
   const chipList = state.chipItems.map((item) => {
-    return <div key={item.id}>
-
-        <Chip name={item.name} profile_photo={item.profile_photo}/>
-
-
-    </div>;
+    return (
+      <div key={item.id}>
+        <Chip
+          id={item.id}
+          name={item.name}
+          profile_photo={item.profile_photo}
+        />
+      </div>
+    );
   });
 
   return (
