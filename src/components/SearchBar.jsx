@@ -5,6 +5,7 @@ import { AppContext } from "../App";
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
+  const [warn,setWarn] = useState(false)
 
   const data = useContext(AppContext);
   const { inputActive, setInputActive, state, dispatch } = data;
@@ -14,28 +15,51 @@ const SearchBar = () => {
   };
 
   const handleBlur = (e) => {
-    if (e.relatedTarget.name !== "dropdown-item")
-      if (e.relatedTarget === null) {
-        console.log("Dropdown disappears");  
-        setInputActive(false);
-      }
+    
+    setWarn(false)
 
     console.log("From blur");
   };
 
   const handleInputChange = (e) => {
-    console.log("From input change");
-    
+    console.log("From handle input change");       
     setInput(e.target.value);
   };
 
-  const chipList = state.chipItems.map((item) => {
+  const handleKeyDown = (e)=>{
+    console.log(e.target.value)
+    if(e.keyCode === 8 && state.chipItems.length !==0 && input==="" ){
+
+      if(warn===false){
+
+        setWarn(true)
+      }
+      else{
+        const lastItem = state.chipItems[state.chipItems.length -1]
+        const newDropItems = [...state.dropdownItems,lastItem]
+        const newChipItems = state.chipItems.filter((item)=>{
+          if(item.id!==lastItem.id)
+          return item
+        })
+        dispatch({type:"REMOVE",payload:{newDropItems,newChipItems}})
+        setWarn(false);
+      }
+    }
+    
+    // console.log(e.target.value);
+  }
+
+  const chipList = state.chipItems.map((item,index) => {   
+
+    const isLastItem = index === state.chipItems.length - 1;
+    const shouldWarn = warn && isLastItem;
     return (
-      <div key={item.id}>
+      <div key={item.id} >
         <Chip
           id={item.id}
           name={item.name}
           profile_photo={item.profile_photo}
+          shouldWarn = {shouldWarn}
         />
       </div>
     );
@@ -53,7 +77,8 @@ const SearchBar = () => {
           value={input}
           onChange={handleInputChange}
           onFocus={handleInputSelect}
-          // onBlur={handleBlur}
+          onKeyDown={handleKeyDown}
+          onBlur={handleBlur} 
         />
       </div>
       {inputActive && data.state.dropdownItems.length > 0 && (

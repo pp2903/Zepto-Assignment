@@ -12,9 +12,11 @@
     align-items: center;
     justify-content: center;
 
+
 }
 
 
 body{
     background-color: bisque;
+    min-width: max-content;
 }
