@@ -20,8 +20,8 @@ const Chip = ({ id, name, email, profile_photo, shouldWarn }) => {
   return (
     <>
       <div
-        className={`chip flex  place-content-center bg-slate-300 rounded-full py-1 min-w-max max-w-min items-center m-[3.5px] ${
-          shouldWarn ? "bg-red-300" : ""
+        className={`chip flex  place-content-center  rounded-full py-1 min-w-max max-w-min items-center m-[3.5px] ${
+          shouldWarn ? "bg-red-300" : "bg-slate-300"
         }`}
       >
         <img
