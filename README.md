@@ -1,8 +1,25 @@
-# React + Vite
+# Search Bar using React.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Screenshots
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Home page**
+![Screenshot 2024-01-16 232210](https://github.com/pp2903/Zepto-Assignment/assets/91665293/0c8ba07f-ef01-473a-8844-fa1775a76f50)
+
+
+**Page view after selecting input field**
+![Screenshot (106)](https://github.com/pp2903/Zepto-Assignment/assets/91665293/f75e0288-83a0-48f8-a9c8-ca8d4b10e391)
+
+
+
+**Page view after selecting user**
+![Screenshot (108)](https://github.com/pp2903/Zepto-Assignment/assets/91665293/c9607efe-09a6-41fa-90e2-1f597f15e077)
+
+
+**Page view after pressing backspace once**
+![Screenshot (110)](https://github.com/pp2903/Zepto-Assignment/assets/91665293/a8c73299-c0e4-41c6-b600-ea7a56fcd8fc)
+
+
+
+
+
